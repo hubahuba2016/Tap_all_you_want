@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Rules : MonoBehaviour
+public class RulesLvl2 : MonoBehaviour
 {
-    public SpawnLvl1 spawn_script;
+    public SpawnLvl2 spawn_script;
     public Text choose_tap;
     public Image choose_tap_background;
     public Text ready_text;
@@ -47,9 +47,9 @@ public class Rules : MonoBehaviour
             Destroy(ready_text);
             start_game = true;
         }
-        if(property_string == "tap all the rubber ducky")
+        if (property_string == "tap all the rubber ducky")
         {
-            if(rubber_duckys.Length == 0)
+            if (rubber_duckys.Length == 0)
             {
                 is_win = true;
             }
@@ -60,7 +60,7 @@ public class Rules : MonoBehaviour
         }
         else if (property_string == "tap all the fish")
         {
-            if (fishes.Length == 0) 
+            if (fishes.Length == 0)
             {
                 is_win = true;
             }
@@ -71,7 +71,7 @@ public class Rules : MonoBehaviour
         }
         else if (property_string == "tap all the stop sign")
         {
-            if(stop_signs.Length == 0)
+            if (stop_signs.Length == 0)
             {
                 is_win = true;
             }
@@ -82,7 +82,7 @@ public class Rules : MonoBehaviour
         }
         else if (property_string == "tap all except rubber ducky")
         {
-            if(stop_signs.Length == 0 && fishes.Length == 0) 
+            if (stop_signs.Length == 0 && fishes.Length == 0)
             {
                 is_win = true;
             }
@@ -93,7 +93,7 @@ public class Rules : MonoBehaviour
         }
         else if (property_string == "tap all except fish")
         {
-            if(rubber_duckys.Length == 0 && stop_signs.Length == 0)
+            if (rubber_duckys.Length == 0 && stop_signs.Length == 0)
             {
                 is_win = true;
             }
@@ -104,7 +104,7 @@ public class Rules : MonoBehaviour
         }
         else if (property_string == "tap all except stop sign")
         {
-            if(rubber_duckys.Length == 0 && fishes.Length == 0)
+            if (rubber_duckys.Length == 0 && fishes.Length == 0)
             {
                 is_win = true;
             }
@@ -117,11 +117,11 @@ public class Rules : MonoBehaviour
         {
             Debug.Log("property_string error");
         }
-        if(is_win == true && spawn_script.is_playing == true && game_over == false)
+        if (is_win == true && spawn_script.is_playing == true && game_over == false)
         {
             win_image.gameObject.SetActive(true);
             win_text.gameObject.SetActive(true);
-            if(rubber_duckys.Length > 0 || fishes.Length > 0 || stop_signs.Length > 0)
+            if (rubber_duckys.Length > 0 || fishes.Length > 0 || stop_signs.Length > 0)
             {
                 foreach (GameObject go in rubber_duckys)
                 {
@@ -137,12 +137,12 @@ public class Rules : MonoBehaviour
                 }
             }
             scene_loadable = true;
-            
-            if (Input.GetMouseButtonDown(0)&&scene_loadable==true&& pause==true)
+
+            if (Input.GetMouseButtonDown(0) && scene_loadable == true && pause == true)
             {
                 SceneManager.LoadScene("LevelTwo", LoadSceneMode.Single);
             }
-            if(Input.GetMouseButtonDown(0)&&pause == false)
+            if (Input.GetMouseButtonDown(0) && pause == false)
             {
                 pause = true;
             }
@@ -152,7 +152,7 @@ public class Rules : MonoBehaviour
             win_image.gameObject.SetActive(false);
             win_text.gameObject.SetActive(false);
         }
-        if(game_over==true)
+        if (game_over == true)
         {
             game_over_background.gameObject.SetActive(true);
             game_over_text.gameObject.SetActive(true);
@@ -173,9 +173,9 @@ public class Rules : MonoBehaviour
                 }
             }
             scene_loadable = true;
-            if (Input.GetMouseButtonDown(0)&&scene_loadable==true&& pause == true)
+            if (Input.GetMouseButtonDown(0) && scene_loadable == true && pause == true)
             {
-                SceneManager.LoadScene("LevelTwo", LoadSceneMode.Single);
+                SceneManager.LoadScene("LevelOne", LoadSceneMode.Single);
             }
             if (Input.GetMouseButtonDown(0) && pause == false)
             {
@@ -205,15 +205,15 @@ public class Rules : MonoBehaviour
             ChooseObject();
         }
         choosing_object = Random.Range(0, 3);
-        if(choosing_object == 0)
+        if (choosing_object == 0)
         {
             property_string = property_string + "rubber ducky";
         }
-        else if(choosing_object == 1)
+        else if (choosing_object == 1)
         {
             property_string = property_string + "fish";
         }
-        else if(choosing_object == 2)
+        else if (choosing_object == 2)
         {
             property_string = property_string + "stop sign";
         }
