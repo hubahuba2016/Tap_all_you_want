@@ -32,6 +32,7 @@ public class Rules : MonoBehaviour
         ChooseObject();
         Debug.Log(property_string);
         choose_tap.text = property_string;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
     // Update is called once per frame
@@ -175,7 +176,7 @@ public class Rules : MonoBehaviour
             scene_loadable = true;
             if (Input.GetMouseButtonDown(0)&&scene_loadable==true&& pause == true)
             {
-                SceneManager.LoadScene("LevelTwo", LoadSceneMode.Single);
+                SceneManager.LoadScene("LevelOne", LoadSceneMode.Single);
             }
             if (Input.GetMouseButtonDown(0) && pause == false)
             {

@@ -32,6 +32,7 @@ public class RulesLvl2 : MonoBehaviour
         ChooseObject();
         Debug.Log(property_string);
         choose_tap.text = property_string;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
     // Update is called once per frame
